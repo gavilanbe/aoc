@@ -1,4 +1,4 @@
-# --- Day 4: Giant Squid ---
+# --- Skeleton for aoc python code ---
 
 def part_one():
     print("part one is X")
