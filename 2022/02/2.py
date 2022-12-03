@@ -35,7 +35,6 @@ def part_one():
 
     print(f"1. Score is {score}")
 
-
 def part_two():
 # A = Rock     (1 p)
 # B = Paper    (2 p)
