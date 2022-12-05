@@ -1,7 +1,7 @@
 # --- Skeleton for aoc python code ---
 import string
 
-with open('input_3.txt') as f:
+with open('dummy.txt') as f:
     lines = f.read().split()
 
 ## PART 1
@@ -32,10 +32,26 @@ def part_one():
 
 ## Part 2
 
-group_of_three = [line for line in lines]
+group_of_three = []
+counter = 0
+for i in lines:
+    group_of_three.append([lines[counter],lines[counter+1],lines[counter+2]])
+    counter += 3
+    if counter == len(lines):
+             break
+
+
+def three_repeated_letters(supplies: list) -> string:
+    repeated = ""
+    for supply in supplies:
+        for letter in supply[0]:
+            if letter in supply[1] and letter in supply[2]:
+               repeated += letter
+               break
+    return repeated
 
 def part_two():
-    print("part two is Z")
+    print(f"Part 2: {count_score(repeated_letters(group_of_three))}")
 
 def main():
     part_one()
@@ -43,3 +59,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
