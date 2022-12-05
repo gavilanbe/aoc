@@ -1,16 +1,16 @@
 # --- Skeleton for aoc python code ---
 import string
 
-with open('dummy.txt') as f:
+with open('input_3.txt') as f:
     lines = f.read().split()
 
-## PART 1
+## Part 1
 
-    supplies = [[line[:len(line) // 2],line[len(line) // 2:]] for line in lines]
+supplies = [[line[:len(line) // 2],line[len(line) // 2:]] for line in lines]
     
-    # Alphabet
-    alphabet = [letter for letter in list(string.ascii_lowercase) + list(string.ascii_uppercase)]
-    alphabet_dict = { k: v for v, k in enumerate(alphabet,1) }
+# Alphabet
+alphabet = [letter for letter in list(string.ascii_lowercase) + list(string.ascii_uppercase)]
+alphabet_dict = { k: v for v, k in enumerate(alphabet,1) }
 
 def repeated_letters(supplies: list) -> string:
     repeated = ""
@@ -21,14 +21,14 @@ def repeated_letters(supplies: list) -> string:
                break
     return repeated
 
-def count_score(repeated: str) -> int:
+def score(repeated: str) -> int:
     score = 0
     for char in repeated:
         score += alphabet_dict[char]
     return score
 
 def part_one():
-    print(f"PART 1. The score is: {count_score(repeated_letters(supplies))}")
+    print(f"Part 1. The score is: {score(repeated_letters(supplies))}")
 
 ## Part 2
 
@@ -40,7 +40,6 @@ for i in lines:
     if counter == len(lines):
              break
 
-
 def three_repeated_letters(supplies: list) -> string:
     repeated = ""
     for supply in supplies:
@@ -51,7 +50,7 @@ def three_repeated_letters(supplies: list) -> string:
     return repeated
 
 def part_two():
-    print(f"Part 2: {count_score(repeated_letters(group_of_three))}")
+    print(f"Part 2: {score(three_repeated_letters(group_of_three))}")
 
 def main():
     part_one()
